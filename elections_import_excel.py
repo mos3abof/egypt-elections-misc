@@ -13,7 +13,9 @@ con = None
 
 try:
     ## Connection to database
-    con = db.connect('localhost', 'root', 'serverPASSWD12', 'electionswidget', use_unicode=1, charset="utf8")
+    ## Update this to match your credentials
+    ## Database hase to already exist, you need to create it manually, will look into creating it automatically if it doesn't already exist
+    con = db.connect('localhost', 'root', 'password', 'egypt_elections', use_unicode=1, charset="utf8")
 
     ## Opening the excel file
     book = open_workbook('complete.xls')
@@ -21,6 +23,7 @@ try:
     our_sheet = book.sheet_by_index(0)
 
     ## Looping over sheet rows
+    ## We already know the number of rows
     for i in range(9339):
         our_row = our_sheet.row_slice(i+1)
 
